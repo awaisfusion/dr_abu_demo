@@ -55,6 +55,7 @@ dependencies:
   # Video and media
   video_player: ^2.8.6
   chewie: ^1.8.0
+  youtube_player_flutter: ^9.0.1
   
   # Utilities
   intl: ^0.19.0
@@ -78,21 +79,21 @@ dev_dependencies:
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/icons/app_icon_1024.png"
+  image_path: "assets/icons/app_icon.png"
   min_sdk_android: 21
   remove_alpha_ios: true
   web:
     generate: true
-    image_path: "assets/icons/app_icon_1024.png"
+    image_path: "assets/icons/app_icon.png"
     background_color: "#FFD700"
     theme_color: "#DC143C"
   windows:
     generate: true
-    image_path: "assets/icons/app_icon_1024.png"
+    image_path: "assets/icons/app_icon.png"
     icon_size: 48
   macos:
     generate: true
-    image_path: "assets/icons/app_icon_1024.png"
+    image_path: "assets/icons/app_icon.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

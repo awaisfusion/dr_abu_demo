@@ -4,6 +4,7 @@ class DrAbuVideo {
   final String description;
   final String thumbnailUrl;
   final String videoUrl;
+  final String youtubeVideoId;
   final String category;
   final Duration duration;
   final int views;
@@ -18,6 +19,7 @@ class DrAbuVideo {
     required this.description,
     required this.thumbnailUrl,
     required this.videoUrl,
+    required this.youtubeVideoId,
     required this.category,
     required this.duration,
     required this.views,
@@ -57,8 +59,9 @@ class MockData {
       title: 'Dr Abu\'s Morning Motivation',
       description:
           'Start your day with Dr Abu\'s infectious energy and wisdom!',
-      thumbnailUrl: 'https://picsum.photos/400/300?random=1',
-      videoUrl: 'sample_video_url_1',
+      thumbnailUrl: 'https://img.youtube.com/vi/y-ezpJOFMKU/maxresdefault.jpg',
+      videoUrl: 'https://youtube.com/shorts/y-ezpJOFMKU?si=F9x7E6ZA-84J4sTM',
+      youtubeVideoId: 'y-ezpJOFMKU',
       category: 'Motivation',
       duration: const Duration(minutes: 3, seconds: 45),
       views: 2500000,
@@ -70,8 +73,9 @@ class MockData {
       id: 'video_2',
       title: 'Abu\'s Comedy Special',
       description: 'Laugh out loud with Dr Abu\'s latest comedy sketches!',
-      thumbnailUrl: 'https://picsum.photos/400/300?random=2',
-      videoUrl: 'sample_video_url_2',
+      thumbnailUrl: 'https://img.youtube.com/vi/9t7an2an_GE/maxresdefault.jpg',
+      videoUrl: 'https://youtube.com/shorts/9t7an2an_GE?si=efaYrsN2ZEgC32Tl',
+      youtubeVideoId: '9t7an2an_GE',
       category: 'Comedy',
       duration: const Duration(minutes: 5, seconds: 20),
       views: 1800000,
@@ -83,8 +87,9 @@ class MockData {
       title: 'Behind the Scenes: UK Tour',
       description:
           'Exclusive behind-the-scenes footage from Dr Abu\'s UK tour!',
-      thumbnailUrl: 'https://picsum.photos/400/300?random=3',
-      videoUrl: 'sample_video_url_3',
+      thumbnailUrl: 'https://img.youtube.com/vi/gKY6ZDeNjGM/maxresdefault.jpg',
+      videoUrl: 'https://youtube.com/shorts/gKY6ZDeNjGM?si=UMbex9l5yCnkaT9n',
+      youtubeVideoId: 'gKY6ZDeNjGM',
       category: 'Tour',
       duration: const Duration(minutes: 8, seconds: 15),
       views: 950000,
@@ -97,8 +102,9 @@ class MockData {
       id: 'video_4',
       title: 'Dr Abu\'s Life Lessons',
       description: 'Wisdom and life advice from the one and only Dr Abu',
-      thumbnailUrl: 'https://picsum.photos/400/300?random=4',
-      videoUrl: 'sample_video_url_4',
+      thumbnailUrl: 'https://img.youtube.com/vi/VaZdUkGVqAA/maxresdefault.jpg',
+      videoUrl: 'https://youtube.com/shorts/VaZdUkGVqAA?si=HN1abdxUDDFhhUWE',
+      youtubeVideoId: 'VaZdUkGVqAA',
       category: 'Wisdom',
       duration: const Duration(minutes: 6, seconds: 30),
       views: 3200000,
@@ -110,8 +116,9 @@ class MockData {
       title: 'African Culture Celebration',
       description:
           'Dr Abu celebrates the beauty of African culture and heritage',
-      thumbnailUrl: 'https://picsum.photos/400/300?random=5',
-      videoUrl: 'sample_video_url_5',
+      thumbnailUrl: 'https://img.youtube.com/vi/VGmJ8UzJvpQ/maxresdefault.jpg',
+      videoUrl: 'https://youtube.com/shorts/VGmJ8UzJvpQ?si=K2A77L8fGoQytSMK',
+      youtubeVideoId: 'VGmJ8UzJvpQ',
       category: 'Culture',
       duration: const Duration(minutes: 4, seconds: 55),
       views: 1650000,

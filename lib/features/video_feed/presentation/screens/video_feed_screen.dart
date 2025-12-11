@@ -7,6 +7,7 @@ import 'package:timeago/timeago.dart' as timeago;
 import '../../../../core/theme/app_theme.dart';
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/data/mock_data.dart';
+import '../../../../core/widgets/youtube_player.dart';
 
 class VideoFeedScreen extends StatefulWidget {
   const VideoFeedScreen({super.key});
@@ -379,78 +380,86 @@ class _VideoFeedScreenState extends State<VideoFeedScreen>
               Expanded(
                 flex: 2,
                 child: Padding(
-                  padding: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text(
-                        video.title,
-                        style: AppTextStyles.cardTitle.copyWith(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
+                      Flexible(
+                        child: Text(
+                          video.title,
+                          style: AppTextStyles.cardTitle.copyWith(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
                         ),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
+                      ),
+
+                      const SizedBox(height: 6),
+
+                      Flexible(
+                        child: Text(
+                          video.description,
+                          style: AppTextStyles.cardSubtitle.copyWith(
+                            fontSize: 11,
+                            height: 1.3,
+                          ),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ),
 
                       const SizedBox(height: 8),
 
-                      Text(
-                        video.description,
-                        style: AppTextStyles.cardSubtitle.copyWith(
-                          fontSize: 12,
-                          height: 1.4,
-                        ),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-
-                      const Spacer(),
-
                       Row(
                         children: [
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 8,
-                              vertical: 3,
-                            ),
-                            decoration: BoxDecoration(
-                              color: AppColors.primaryGold.withOpacity(0.2),
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                            child: Text(
-                              video.category.toUpperCase(),
-                              style: AppTextStyles.cardSubtitle.copyWith(
-                                fontSize: 10,
-                                color: AppColors.primaryGold,
-                                fontWeight: FontWeight.w600,
+                          Flexible(
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 8,
+                                vertical: 3,
+                              ),
+                              decoration: BoxDecoration(
+                                color: AppColors.primaryGold.withOpacity(0.2),
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: Text(
+                                video.category.toUpperCase(),
+                                style: AppTextStyles.cardSubtitle.copyWith(
+                                  fontSize: 9,
+                                  color: AppColors.primaryGold,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                                overflow: TextOverflow.ellipsis,
                               ),
                             ),
                           ),
 
-                          const Spacer(),
+                          const SizedBox(width: 8),
 
                           Icon(
                             Iconsax.eye,
-                            size: 14,
+                            size: 12,
                             color: AppColors.textGray,
                           ),
                           const SizedBox(width: 4),
                           Text(
                             '${(video.views / 1000000).toStringAsFixed(1)}M',
                             style: AppTextStyles.cardSubtitle.copyWith(
-                              fontSize: 11,
+                              fontSize: 10,
                             ),
                           ),
                         ],
                       ),
 
-                      const SizedBox(height: 4),
+                      const SizedBox(height: 2),
 
                       Text(
                         timeago.format(video.uploadDate),
                         style: AppTextStyles.cardSubtitle.copyWith(
-                          fontSize: 11,
+                          fontSize: 10,
                           color: AppColors.textLightGray,
                         ),
                       ),
@@ -470,48 +479,10 @@ class _VideoFeedScreenState extends State<VideoFeedScreen>
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
-      builder: (context) => Container(
-        height: MediaQuery.of(context).size.height * 0.9,
-        decoration: const BoxDecoration(
-          color: AppColors.primaryBlack,
-          borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
-        ),
-        child: Column(
-          children: [
-            // Handle
-            Container(
-              margin: const EdgeInsets.only(top: 10, bottom: 20),
-              width: 50,
-              height: 5,
-              decoration: BoxDecoration(
-                color: AppColors.primaryGold,
-                borderRadius: BorderRadius.circular(3),
-              ),
-            ),
-
-            // Video placeholder (would be actual video player in real app)
-            Expanded(
-              child: Container(
-                margin: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  color: AppColors.secondaryBlack,
-                  borderRadius: BorderRadius.circular(20),
-                  image: DecorationImage(
-                    image: NetworkImage(video.thumbnailUrl),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                child: const Center(
-                  child: Icon(
-                    Iconsax.play_circle,
-                    color: AppColors.primaryGold,
-                    size: 80,
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
+      builder: (context) => DrAbuYouTubePlayer(
+        videoId: video.youtubeVideoId,
+        title: video.title,
+        onClose: () => Navigator.of(context).pop(),
       ),
     );
   }
